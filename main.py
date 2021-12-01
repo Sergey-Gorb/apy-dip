@@ -10,14 +10,14 @@ from shabuservk import VKpop
 import photolu
 
 
-user_id = '670053379'
-token_b = '1063ed953c64645f57a2bd8dd5e43d58936e059c8003b9cf8f00c56b4cb8de18ffef06a99d927ed5642e7'
+user_id = ''
+token_b = ''
 db_file = 'vk_users.db'
 db_c = DBclass(db_file)
 vk_b = vk_api.VkApi(token=token_b)
 longpoll = VkLongPoll(vk_b)
 upload = VkUpload(vk_b)
-token_vk = '2ed4994139addec3f51843643fe25f35b8251b197bef321c715a18ce998c5b61f6e1c859cc10ec2f9c7dd'
+token_vk = ''
 downloader = VKpop(token_vk)
 
 bot_menu = {'f0': ['Я Бот ИскуН. Чем могу помочь?', {'Поиск': 1, 'Просмотр': 2, 'Инфо': 3, 'Выход': 0}],
@@ -126,7 +126,7 @@ for event in longpoll.listen():
                     #     write_msg(vk_b, 'user_id', event.user_id, "Можно поискать!",
                     #               keyboards=keyboard_3.get_keyboard())
                     find_data = downloader.user_search(age_f, age_t, male, status, hometown)
-                    print(find_data)
+                    #print(find_data)
                     db_c.add_contact(find_data)
                 elif request == 'Пол':
                     cur_menu_ref = 11
